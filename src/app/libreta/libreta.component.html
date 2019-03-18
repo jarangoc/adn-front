@@ -1,0 +1,25 @@
+<button type="button" (click)="setHabilitar()" class="btn btn-primary">{{(habilitar)? 'Ocultar': 'Mostrar'}}</button>
+<div class="card">
+  <div class="card-header">
+    Listado de vehículos en parqueadero
+  </div>
+
+  <table class="table" *ngIf="habilitar">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Placa</th>
+          <th scope="col">Tipo vehículo</th>
+          <th scope="col">Fecha ingreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculoParqueadero of vehiculosEnParqueadero; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{vehiculoParqueadero.placa}}</td>
+          <td>{{vehiculoParqueadero.tipoVehiculo}}</td>
+          <td>{{vehiculoParqueadero.fechaIngreso}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
