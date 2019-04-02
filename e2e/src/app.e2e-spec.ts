@@ -13,15 +13,10 @@ describe('workspace-project App', () => {
     expect(page.getTitleText()).toEqual('Bienvenido al parqueadero ADN');
   });
 
-  it('la tabla deberia tener 30 registros',()=>{
+  it('la tabla deberia tener 20 registros',()=>{
     page.insertarCarros(20);
     expect(page.getCantidadRegistrosTabla()).toEqual(20);
   });
-
-  // it('la tabla deberia tener 10 registros',()=>{
-  //   page.retirarMotos(10);
-  //   expect(page.getCantidadRegistrosTabla()).toEqual(10);
-  // });
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
