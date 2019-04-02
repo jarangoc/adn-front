@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {RegistroParqueadero} from './RegistroParqueadero'
 import {LibretaService} from './libreta.service';
 
@@ -8,8 +8,8 @@ import {LibretaService} from './libreta.service';
   templateUrl: './libreta.component.html',
 })
 export class LibretaComponent {
-
-  vehiculosEnParqueadero:RegistroParqueadero[];
+  @Input() staticdata: string;
+  @Input() vehiculosEnParqueadero:RegistroParqueadero[];
 
   habilitar:boolean = true;
   constructor(private libretaService: LibretaService) { }

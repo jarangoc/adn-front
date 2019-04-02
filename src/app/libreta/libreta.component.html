@@ -1,10 +1,9 @@
-<button type="button" (click)="setHabilitar()" class="btn btn-primary">{{(habilitar)? 'Ocultar': 'Mostrar'}}</button>
 <div class="card">
   <div class="card-header">
     Listado de vehículos en parqueadero
   </div>
 
-  <table class="table" *ngIf="habilitar">
+  <table class="table" *ngIf="vehiculosEnParqueadero?.length >0">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -14,11 +13,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let vehiculoParqueadero of vehiculosEnParqueadero; let i = index">
+        <tr *ngFor="let vehiculoParqueadero of vehiculosEnParqueadero; let i = index" class="registro">
           <th scope="row">{{i + 1}}</th>
-          <td>{{vehiculoParqueadero.placa}}</td>
-          <td>{{vehiculoParqueadero.tipoVehiculo}}</td>
-          <td>{{vehiculoParqueadero.fechaIngreso}}</td>
+          <td id="placa_{{vehiculoParqueadero.placa}}" >{{vehiculoParqueadero.placa}}</td>
+          <td id="tipoVehiculo_{{vehiculoParqueadero.placa}}">{{vehiculoParqueadero.tipoVehiculo}}</td>
+          <td id="fechaIngreso_{{vehiculoParqueadero.placa}}">{{vehiculoParqueadero.fechaIngreso | date:'dd/MM/yyyy hh:mm:ss a'}}</td>
         </tr>
       </tbody>
     </table>
